@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="subTwoNo">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subTwoNoResponse">
+    <complexType>
+     <sequence>
+      <element name="subTwoNoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addTwoNo">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addTwoNoResponse">
+    <complexType>
+     <sequence>
+      <element name="addTwoNoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="subTwoNoResponse">
+
+      <wsdl:part element="impl:subTwoNoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addTwoNoRequest">
+
+      <wsdl:part element="impl:addTwoNo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addTwoNoResponse">
+
+      <wsdl:part element="impl:addTwoNoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subTwoNoRequest">
+
+      <wsdl:part element="impl:subTwoNo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Addition">
+
+      <wsdl:operation name="subTwoNo">
+
+         <wsdl:input message="impl:subTwoNoRequest" name="subTwoNoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subTwoNoResponse" name="subTwoNoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addTwoNo">
+
+         <wsdl:input message="impl:addTwoNoRequest" name="addTwoNoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addTwoNoResponse" name="addTwoNoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AdditionSoapBinding" type="impl:Addition">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="subTwoNo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subTwoNoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subTwoNoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addTwoNo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addTwoNoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addTwoNoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AdditionService">
+
+      <wsdl:port binding="impl:AdditionSoapBinding" name="Addition">
+
+         <wsdlsoap:address location="http://localhost:9090/SoapWebServiceEx/services/Addition"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
